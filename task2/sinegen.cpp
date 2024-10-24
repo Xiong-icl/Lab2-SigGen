@@ -32,8 +32,9 @@ int main(int argc, char **argv, char **env){
             top->eval ();
         }
 
-        top->incr = vbdValue();
-        vbdPlot(int(top->dout), 0, 255);
+        top->offset = vbdValue();
+        vbdPlot(int(top->dout1), 0, 255);
+        vbdPlot(int(top->dout2), 0, 255);
         vbdCycle(i);
 
         //Finishes when simulation is done or when q is pressed.
