@@ -91,3 +91,13 @@ int main(int argc, char **argv, char **env){
 }
 ```
 Shamelessly referenced from the Lab, the new testbench mostly follows the old with the difference of `top->incr` and `vbdCycle()`.
+
+For the Challenge, to change the frequency dependent on the vbdValue() we need to change the way increment and address is handled.
+
+```
+always_ff @ (posedge clk)
+    if(rst) addr <= {WIDTH{1'b0}};
+    else addr <= incr + addr;
+
+```
+This new `always_ff` function allows for the address to be changed based on the increment, so as the rotary encoder is twisted, the vbdValue() is increased, so top->incr is assigned in the testbench and increment is added to address to increase the wave frequency.
