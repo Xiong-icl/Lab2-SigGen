@@ -1,3 +1,1 @@
-$ cat .gitignore
-*.[md]
-*~
+*.md
